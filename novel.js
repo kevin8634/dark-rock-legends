@@ -42,9 +42,24 @@ const fsSet=d=>{const cur=parseFloat(getComputedStyle(document.documentElement).
   st.fs=Math.min(26,Math.max(15,cur+d));document.documentElement.style.setProperty('--fs',st.fs+'px');save();};
 $('#fsUp').onclick=()=>fsSet(1); $('#fsDown').onclick=()=>fsSet(-1);
 
-// 配乐
-const aud=$('#aud'), bgm=$('#bgm'); aud.volume=.35;
-bgm.onclick=()=>{ if(aud.paused){aud.play().catch(()=>{});bgm.setAttribute('aria-pressed','true');} else {aud.pause();bgm.setAttribute('aria-pressed','false');} };
+// 简易 OST 播放器
+const aud=$('#aud'), mp=$('#mp'), sel=$('#mpSel'), play=$('#mpPlay'), bar=$('#mpBar'), vol=$('#mpVol');
+const TR=window.TRACKS||[], CH=window.CHAPTERS||[];
+CH.forEach(c=>{const g=document.createElement('optgroup');g.label=c.zh;
+  TR.filter(t=>t.ch===c.id).forEach(t=>{const o=document.createElement('option');o.value=t.id;o.textContent=t.zh;g.appendChild(o);});
+  if(g.children.length)sel.appendChild(g);});
+const ids=TR.map(t=>t.id);
+const load=id=>{sel.value=id;aud.src='music/'+id+'.mp3';st.track=id;save();};
+load(ids.includes(st.track)?st.track:'title_theme');
+aud.volume=st.vol!=null?st.vol:.35; vol.value=aud.volume;
+const setUI=()=>{const on=!aud.paused;mp.classList.toggle('on',on);play.textContent=on?'❚❚':'▶';play.setAttribute('aria-label',on?'暂停':'播放');};
+play.onclick=()=>{aud.paused?aud.play().catch(()=>{}):aud.pause();};
+aud.onplay=aud.onpause=setUI;
+sel.onchange=()=>{load(sel.value);aud.play().catch(()=>{});};
+const next=()=>{load(ids[(ids.indexOf(sel.value)+1)%ids.length]);aud.play().catch(()=>{});};
+$('#mpNext').onclick=next; aud.onended=next;
+aud.ontimeupdate=()=>{bar.style.width=(aud.duration?aud.currentTime/aud.duration*100:0)+'%';};
+vol.oninput=()=>{aud.volume=+vol.value;st.vol=aud.volume;save();};
 
 // 图鉴卡
 const card=$('#card'); let act;

@@ -20,7 +20,6 @@
   <div class="tools">
     <button id="fsDown" aria-label="缩小字号">A−</button>
     <button id="fsUp" aria-label="放大字号">A+</button>
-    <button id="bgm" aria-pressed="false" title="本章配乐：Title Theme">♪ 配乐</button>
   </div>
 </header>
 
@@ -140,9 +139,19 @@
 </div>
 
 <div class="card" id="card" hidden><b></b><span></span></div>
-<audio id="aud" src="music/title_theme.mp3" loop preload="none"></audio>
+<div class="mp" id="mp">
+  <button class="mp-play" id="mpPlay" aria-label="播放">▶</button>
+  <div class="mp-info"><small>古钟唱机 · OST</small>
+    <select id="mpSel" aria-label="选择曲目"></select>
+  </div>
+  <button class="mp-btn" id="mpNext" aria-label="下一首">⏭</button>
+  <input type="range" id="mpVol" min="0" max="1" step="0.05" value="0.35" aria-label="音量">
+  <i class="mp-bar"><b id="mpBar"></b></i>
+</div>
+<audio id="aud" preload="none"></audio>
 <p class="credit">墨言笔记 · 依据游戏设定改编 · 文字与插图由 AI 辅助创作 · 非商业免费阅读</p>
 <script>window.GLOSS={"布兰": {"t": "营地守卫长 · Bran", "d": "冒险者最早的引路人，把冒险者的名字刻上营地门柱。"}, "灰石营地": {"t": "地点 · Greystone Camp", "d": "地表守护者的据点，商路与前哨的中心。冒险者从这里出发。"}, "烬火堡垒": {"t": "地点 · Emberfire Bastion", "d": "烬落荒原上的堡垒，墨言在此驻留、写下笔记。"}, "烬落荒原": {"t": "地点 · Emberfall Wastes", "d": "余烬覆盖的荒原，烬火堡垒所在之地。"}, "沙葬王陵": {"t": "30 级副本", "d": "沙葬法老塞特赫长眠之地。「谁……打扰了法老的长眠？」"}, "灰烬铸造厂": {"t": "30 级副本", "d": "熔铸大师维克多与未完成的铸像。"}, "瓦尔卡兹": {"t": "熔心君王 · Valkaz", "d": "把自己的心脏扔进熔炉，换来永不熄灭的生命。"}, "伊瑟兰": {"t": "永冬之王 · Ithran", "d": "停下自己的心跳，好让冬天永远不结束。"}};</script>
+<script src="tracks.js"></script>
 <script src="novel.js"></script>
 </body>
 </html>
