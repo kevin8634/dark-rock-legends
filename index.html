@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>暗岩传说：深渊回响 · Dark Rock Legends</title>
+<meta name="description" content="暗岩传说：深渊回响 —— 免费下载游戏，在线收听原声音乐。">
+<meta name="theme-color" content="#06100f">
+<meta property="og:title" content="暗岩传说：深渊回响">
+<meta property="og:description" content="千年钟声停了。深渊在回响。免费下载游戏，在线收听 OST。">
+<meta property="og:image" content="img/title.webp">
+<link rel="icon" href="img/n1_icon.webp">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#top"><img src="img/n1_icon.webp" alt=""><span>暗岩传说</span></a>
+  <nav>
+    <a href="#ost">原声 OST</a>
+    <a href="#download">下载</a>
+    <a href="#about">关于</a>
+  </nav>
+  <div class="seals" id="seals" title="听完一首曲子获得一枚钟印 · Seals collected">
+    <i class="seal-ico"></i><b id="sealCount">0</b><span>/21</span>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <video class="hero-video" src="video/opening.webm" autoplay muted loop playsinline preload="metadata"></video>
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="img/logo_m1_a.webp" alt="暗岩传说：深渊回响">
+    <p class="hero-line"><span class="en">The bell has stopped. The abyss echoes.</span>千年钟声停了。深渊在回响。</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#ost">在线聆听 OST<small>Listen</small></a>
+      <a class="btn btn-ghost" href="#download">免费下载<small>Free Download</small></a>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#ost" aria-label="向下">︾</a>
+</section>
+
+<!-- OST 播放器 -->
+<section class="ost" id="ost">
+  <div class="stage" id="stage">
+    <div class="layer bg" id="bgA"></div>
+    <div class="layer bg" id="bgB"></div>
+    <canvas class="layer fx" id="fx"></canvas>
+    <div class="layer tint" id="tint"></div>
+    <div class="layer vignette"></div>
+  </div>
+
+  <div class="ost-head">
+    <h2><span class="en">Original Soundtrack</span>钟鸣航线 · 原声</h2>
+    <p>沿着航线一路听下去。每听完一首，墨言的笔记就多一页。</p>
+  </div>
+
+  <!-- 航线地图 -->
+  <aside class="route" id="route" aria-label="曲目航线"></aside>
+
+  <!-- 中心古钟 -->
+  <div class="bell-wrap" id="bellWrap">
+    <canvas id="rings"></canvas>
+    <button class="bell" id="bell" aria-label="敲钟">
+      <img class="b-base" src="img/n1_base_a.webp" alt="">
+      <img class="b-gold" src="img/n1_gold_a.webp" alt="">
+    </button>
+    <div class="bell-tip">点击纹章 · 敲响古钟</div>
+  </div>
+
+  <!-- 墨言笔记 -->
+  <aside class="lore" id="lore">
+    <div class="lore-head"><span>墨言笔记</span><em>The Chronicler’s Notes</em></div>
+    <div class="lore-place" id="lorePlace"></div>
+    <p class="lore-text" id="loreText"></p>
+    <p class="lore-en" id="loreEn"></p>
+    <div class="lore-state" id="loreState"></div>
+  </aside>
+
+  <!-- 控制条 -->
+  <div class="deck" id="deck">
+    <div class="now">
+      <div class="now-ch" id="nowCh"></div>
+      <div class="now-zh" id="nowZh">点一首曲子开始</div>
+      <div class="now-en" id="nowEn">Choose a track on the route</div>
+    </div>
+    <div class="ctrls">
+      <button id="btnShuffle" class="ic" title="随机播放" aria-label="随机">⤨</button>
+      <button id="btnPrev" class="ic" title="上一首" aria-label="上一首">⏮</button>
+      <button id="btnPlay" class="ic play" title="播放 / 暂停（空格）" aria-label="播放">▶</button>
+      <button id="btnNext" class="ic" title="下一首" aria-label="下一首">⏭</button>
+      <button id="btnLoop" class="ic" title="循环：列表 / 单曲" aria-label="循环">⟳</button>
+    </div>
+    <div class="bar">
+      <div class="boss-name" id="bossName"></div>
+      <canvas id="wave" title="点击或拖动跳转"></canvas>
+      <div class="times"><span id="tCur">0:00</span><span id="tDur">0:00</span></div>
+    </div>
+    <div class="vol"><span>音量</span><input id="vol" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="音量"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
+</section>
+
+<!-- 下载 -->
+<section class="download" id="download">
+  <h2><span class="en">Downloads</span>免费下载</h2>
+  <div class="dl-grid">
+    <div class="dl-card soon">
+      <div class="dl-tag">封装中 · Coming Soon</div>
+      <h3>游戏离线包</h3>
+      <p class="en">Dark Rock Legends — Offline Build</p>
+      <p>解压后打开即可游玩，无需安装。正在做最后的调试，开放后放在这里。</p>
+      <ul class="dl-meta"><li>版本：待定</li><li>大小：待定</li><li>平台：待定</li></ul>
+      <a class="btn btn-ghost disabled" aria-disabled="true">即将开放</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-tag">21 首 · MP3</div>
+      <h3>原声音乐 OST</h3>
+      <p class="en">Original Soundtrack</p>
+      <p>全部 21 首曲子，可在上方在线聆听，也可以逐首下载。</p>
+      <ul class="dl-meta"><li>格式：MP3</li><li>总时长：约 66 分钟</li><li>总大小：约 54 MB</li></ul>
+      <a class="btn btn-gold" href="#ost" id="dlOst">逐首下载</a>
+    </div>
+    <div class="dl-card">
+      <div class="dl-tag">16.5 秒</div>
+      <h3>开场动画</h3>
+      <p class="en">Opening Cinematic</p>
+      <p>钟裂，深井，鮟鱇首领莫尔维斯现身。</p>
+      <ul class="dl-meta"><li>格式：WebM</li><li>分辨率：720p</li></ul>
+      <a class="btn btn-ghost" href="video/opening.webm" download>下载动画</a>
+    </div>
+  </div>
+  <div class="tracklist" id="tracklist" hidden></div>
+</section>
+
+<!-- 关于 -->
+<section class="about" id="about">
+  <h2><span class="en">About</span>关于暗岩传说</h2>
+  <p>《暗岩传说：深渊回响》是一款网页 RPG。千年不息的镜渊古钟忽然停摆，深井下的老王睁开了眼，镜中的影子比主人先醒来。你将穿过沉钟海岸、镜渊城、无声钟楼与潮渊钟井，在十字路口做出选择。</p>
+  <p class="fine">本页面与游戏免费发布。原声音乐由 AI 辅助生成（Suno / MiniMax），仅供免费、非商业收听与使用，请勿用于商业用途。<br>Music created with AI tools (Suno / MiniMax). Free for personal, non-commercial listening.</p>
+</section>
+
+<footer class="foot">© 2026 暗岩传说 Dark Rock Legends</footer>
+
+<!-- 彩蛋 / 苏醒 -->
+<div class="awaken" id="awaken" hidden>
+  <div class="aw-bg"></div>
+  <div class="aw-inner">
+    <div class="aw-1">二十一枚钟印，已全部点亮。</div>
+    <div class="aw-2">THE SLEEPER AWAKENS</div>
+    <div class="aw-3">沉眠者 · 苏醒</div>
+    <p class="aw-4">「你替我把钟，又敲响了一遍。」</p>
+    <button class="btn btn-gold" id="awClose">回到航线</button>
+  </div>
+</div>
+
+<script src="tracks.js"></script>
+<script src="peaks.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
