@@ -8,19 +8,32 @@
 <meta name="theme-color" content="#06100f">
 <meta property="og:title" content="暗岩传说：深渊回响">
 <meta property="og:description" content="千年钟声停了。深渊在回响。免费下载游戏，在线收听 OST。">
-<meta property="og:image" content="img/title.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kevin8634.github.io/dark-rock-legends/">
+<meta property="og:image" content="https://kevin8634.github.io/dark-rock-legends/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="暗岩传说：深渊回响">
+<meta name="twitter:description" content="千年钟声停了。深渊在回响。在线收听 21 首原声，读世界观、图鉴与连载小说。">
+<meta name="twitter:image" content="https://kevin8634.github.io/dark-rock-legends/img/og.jpg">
 <link rel="icon" href="img/n1_icon.webp">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="extra.css">
 </head>
 <body>
 
 <header class="topbar">
   <a class="brand" href="#top"><img src="img/n1_icon.webp" alt=""><span>暗岩传说</span></a>
   <nav>
-    <a href="#ost">原声 OST</a>
+    <a href="#ost">原声</a>
+    <a href="#world">世界观</a>
+    <a href="#codex">图鉴</a>
+    <a href="#media">影像</a>
     <a href="#download">下载</a>
-    <a href="#about">关于</a>
+    <a href="#devlog">日志</a>
     <a href="novel.html">小说</a>
+    <a href="credits.html">署名</a>
   </nav>
   <div class="seals" id="seals" title="听完一首曲子获得一枚钟印 · Seals collected">
     <i class="seal-ico"></i><b id="sealCount">0</b><span>/21</span>
@@ -36,7 +49,8 @@
     <p class="hero-line"><span class="en">The bell has stopped. The abyss echoes.</span>千年钟声停了。深渊在回响。</p>
     <div class="hero-cta">
       <a class="btn btn-gold" href="#ost">在线聆听 OST<small>Listen</small></a>
-      <a class="btn btn-ghost" href="#download">免费下载<small>Free Download</small></a>
+      <button class="btn btn-ghost btn-soon" type="button" disabled aria-disabled="true">立即试玩<small>即将开放 · Coming Soon</small></button>
+      <button class="btn btn-ghost btn-soon" type="button" disabled aria-disabled="true">下载游戏<small>即将开放 · Coming Soon</small></button>
     </div>
   </div>
   <a class="scroll-hint" href="#ost" aria-label="向下">︾</a>
@@ -105,6 +119,122 @@
   <audio id="audio" preload="none" crossorigin="anonymous"></audio>
 </section>
 
+<!-- ===== 新增板块（build/insert.py 写入）===== -->
+<!-- 世界观 -->
+<section class="world" id="world">
+  <div class="w-side">
+    <h2><span class="en">The World</span>世界观</h2>
+    <p class="w-hook">钟停了。<br>谁来敲下一下？</p>
+    <nav class="w-toc" id="wToc" aria-label="世界观目录"></nav>
+    <a class="btn btn-gold w-read" href="novel.html">阅读连载<small>Read the Chronicle</small></a>
+    <p class="w-note">连载小说《墨言笔记》：以副本学者墨言的第一人称，记下从暗岩到沉钟之海的一路。</p>
+  </div>
+  <div class="w-body" id="wBody">
+<article class="w-sec"><h3>暗岩</h3>
+<p>在灰石营地的篝火照不到的地方，大地在跳——一下，一下，像心跳。</p>
+<p>那是暗岩之心。它在地底跳了一千年，呼唤每一颗还在跳的心。被它吞下的生灵不会真正死去，它们成为「回响」，一遍又一遍重复死前的那一天。沙葬王陵的法老、巨魔冰窟的巨人、灰烬铸造厂的熔铸大师，都只是被它喂养的看门狗；熔心君王瓦尔卡兹把心脏扔进熔炉，永冬之王伊瑟兰停下了自己的心跳——他们都想逃开同一种呼唤。</p>
+<p>你背着一把破剑走进灰石营地。从营地外的狼林、监工格罗克盘踞的暗岩矿洞，到被腐根污染的沼泽、劫掠者横行的翠风原野，再到星落高原、赤砂裂谷、霜脊高地与烬落荒原，你一路向下，最终在暗岩深渊的最底层，击碎了借无名铸像现身的暗岩之魂。</p>
+<p>那颗跳了一千年的心，终于停了。</p>
+<p>灰石营地点起篝火，布兰把你的名字刻上门柱，副本学者墨言合上了他写满三百页的笔记。</p>
+<p>而在深渊更深的地方，有什么东西，轻轻翻了个身。</p>
+</article>
+<article class="w-sec"><h3>回响</h3>
+<p>在暗岩，死亡并不总是终点。</p>
+<p>被暗岩之心吞下的魂会留下回响。它们记不得自己是谁，只记得死前的那一天，于是一遍又一遍地重复它：矿工重复着下井的那一天，送钟的水手重复着出海的那一天，新娘重复着婚礼的那一天。它们见到活人就扑上来，像溺水的人抓住最近的一根木头。</p>
+<p>强大的灵魂会成为回响首领。你曾经击倒过的那些名字——矿洞的监工、沼泽的祭司、王陵的法老、王座上的君王——并没有就此消失。它们在更深的地方等你，比活着的时候更大、更沉。</p>
+</article>
+<article class="w-sec"><h3>鸣钟人</h3>
+<p>一千年前，地底之海上有一个以钟为生的族群：鸣钟人。他们铸钟、敲钟、守钟，用自己的誓言编成钟绳。</p>
+<p>他们有敲钟人，日复一日拉动钟绳；有学者，研究钟声为何能捆住海底的东西；有缄默的修士，相信钟不响时人便不许出声；有铸钟匠，在炉火前把钟铜一口口铸成；有与兽魂立契的猎卫，有背着铁棺、为死者守约的送葬者。</p>
+<p>他们的城如今倒挂在穹顶之下，只剩回响住在里面。</p>
+</article>
+<article class="w-sec"><h3>沉钟之海</h3>
+<p>几天后，墨言的笔记末页多了一行潮湿的字，不是他写的：</p>
+<p><b>「钟停了。谁来敲下一下？」</b></p>
+<p>原来暗岩之心从来不只是一颗心，它是一口巨钟的钟锤。</p>
+<p>地底之海的穹顶之下，倒悬着一座城，名为镜渊。千年前，鸣钟人在城心铸下倒垂之钟，以钟声为绳，将海底的沉眠者缚入长梦。暗岩之心吞噬生灵，是在为钟声续命。你打碎了它，钟声断绝，潮水倒退——亡者的回响，正从镜中醒来。</p>
+<p>布兰用心脏碎片铸成一口钟，挂上营地的古井。敲响它，井水便像潮水一样退去，露出一道通往地底的螺旋阶梯。</p>
+<h4>沉钟海岸</h4>
+<p>阶梯尽头是一片黑沙海岸。退潮时，巨大的沉钟露出钟口；锈锚码头的挂灯在风暴里摇晃，鲸骨礁湾泛着青色的荧光。浅滩上游荡着湿漉漉的影子——溺亡者的回响。</p>
+<p>在这里，你会遇见<b>伊奥拉</b>：最后一个敲钟人留下的回响，一个由钟声凝成的少女。她要你帮她，让沉钟再响一下。</p>
+<h4>镜渊城</h4>
+<p>钟响过一下，穹顶上的城亮起一盏灯。那是倒挂在地底之海上方的镜渊城，伊奥拉的家。城里的居民都是回响，面包师、新娘、老渔夫、学徒敲钟人……他们在同一条街上，过着同一天。</p>
+<p>在倒钟广场，被放逐的鸣钟人学者<b>卡戎</b>在等你。他不太喜欢伊奥拉，伊奥拉也让你「别全信他」。</p>
+<p>一个想再敲一次钟，把沉眠者哄回去睡，让这座城再被勒一千年；一个想剪断钟绳，让它醒来，然后把它的力量拿过来。</p>
+<h4>无声钟楼</h4>
+<p>最后一口钟挂在沉钟塔顶，城里的人叫它「无声钟楼」，它已经很久没有响过。五层楼里，每一层都有一个守钟的东西：胸口的钟没有钟舌的铸钟巨像、把自己的嘴缝上的缄默修士长、死时仍攥着钟绳的初代鸣钟人……它们早就忘了自己在守什么。</p>
+<p>在钟楼顶层，你必须做出选择。</p>
+</article>
+<article class="w-sec"><h3>命运的岔路</h3>
+<p><b>再鸣 · 守钟人</b>：与伊奥拉一起重新敲响沉钟，在沉眠者完全醒来之前，把它压回梦里。钟声再起，镜渊城的灯一盏盏亮起，回响们不必再重复那一天。秩序，守护，重建。</p>
+<p><b>断绳 · 渊噬者</b>：与卡戎一起斩断钟绳，正面击败完全醒来的沉眠者，并把它的力量吞下去。地底的潮水第一次听从一个人的号令。混沌，爆发，代价自负。</p>
+<p>选择之后，不可更改。</p>
+</article>
+<article class="w-sec"><h3>钟声之下</h3>
+<p>即使钟楼脚下重归安静，仍有一声钟响从海里传上来。锈锚码头的老井里，一千年前沉下去的那口钟，正被什么东西敲响。井底的水面裂开一张嘴——深潮之喉，莫尔维斯。</p>
+<p>在无声钟楼的西侧，铸钟匠的熔炉也还没有冷透。</p>
+</article>
+<article class="w-sec"><h3>六位冒险者</h3>
+<ul class="w-list">
+<li><b>战士</b>：近战，以怒气为刃，冲进敌阵。</li>
+<li><b>法师</b>：远程，驾驭火、冰与奥术。</li>
+<li><b>时砂行者</b>：掷出时轮，让伤害先存在敌人身上，最后一刻一起引爆；回溯三秒，躲开致命的一击。</li>
+<li><b>炼金投弹手</b>：调配红、蓝、绿三色试剂，让药剂在地面上彼此反应。</li>
+<li><b>灵契猎手</b>（沉钟之海）：鸣钟人的猎卫，与兽魂立契，在狼、熊、鹰三种形态间切换。</li>
+<li><b>负棺人</b>（沉钟之海）：鸣钟人的送葬者，死后仍背着棺材守约。收魂入棺，以棺为碑，开棺送葬。</li>
+</ul>
+<p>钟停了。谁来敲下一下？</p>
+</article>
+  </div>
+  <button class="w-more" id="wMore" type="button">展开全部世界观 ︾</button>
+</section>
+
+<!-- 图鉴 -->
+<section class="codex" id="codex">
+  <div class="cx-head">
+    <h2><span class="en">Bestiary &amp; Characters</span>图鉴</h2>
+    <p>六位冒险者、沿途遇见的人，以及你将要击倒的回响首领。</p>
+    <div class="cx-tabs" role="tablist">
+      <button role="tab" class="on" data-tab="classes">职业 <b>6</b></button>
+      <button role="tab" data-tab="npcs">人物 <b>22</b></button>
+      <button role="tab" data-tab="bosses">首领 <b>42</b></button>
+    </div>
+  </div>
+  <div class="cx-grid" id="cxGrid"></div>
+</section>
+
+<!-- 影像：预告片 + 截图墙 -->
+<section class="media" id="media">
+  <h2><span class="en">Trailers &amp; Screenshots</span>影像</h2>
+  <div class="mv">
+    <div class="mv-screen">
+      <video id="mvVideo" controls playsinline preload="none" poster="video/dlc_trailer_zh.webp">
+        <source id="mvSrc" src="video/dlc_trailer_zh.mp4" type="video/mp4">
+      </video>
+    </div>
+    <ol class="mv-list" id="mvList">
+      <li class="on" data-src="video/dlc_trailer_zh.mp4" data-type="video/mp4" data-poster="video/dlc_trailer_zh.webp"><img src="video/dlc_trailer_zh.webp" alt=""><div><b>资料片预告 · 沉钟之海</b><small>60 秒 · 中文旁白</small></div></li>
+      <li data-src="video/opening.webm" data-type="video/webm" data-poster="video/opening.webp"><img src="video/opening.webp" alt=""><div><b>开场动画</b><small>16 秒 · 钟裂与深井</small></div></li>
+      <li data-src="video/clock_stopped.mp4" data-type="video/mp4" data-poster="video/clock_stopped.webp"><img src="video/clock_stopped.webp" alt=""><div><b>CG · 钟停之时</b><small>60 秒</small></div></li>
+      <li data-src="video/crossroads.mp4" data-type="video/mp4" data-poster="video/crossroads.webp"><img src="video/crossroads.webp" alt=""><div><b>CG · 命运的岔路</b><small>30 秒</small></div></li>
+    </ol>
+  </div>
+  <h3 class="sw-title">截图墙 <small>实机截图与场景 CG · 点击放大</small></h3>
+  <div class="shots" id="shots">
+    <figure data-full="img/shots/game1.webp"><img loading="lazy" src="img/shots/game1_t.webp" alt="退潮沉钟浅滩"><figcaption><i>实机</i>沉钟海岸 · 退潮沉钟浅滩</figcaption></figure>
+    <figure data-full="img/shots/game2.webp"><img loading="lazy" src="img/shots/game2_t.webp" alt="风暴锈锚码头"><figcaption><i>实机</i>沉钟海岸 · 风暴锈锚码头</figcaption></figure>
+    <figure data-full="img/shots/game3.webp"><img loading="lazy" src="img/shots/game3_t.webp" alt="低机位风暴"><figcaption><i>实机</i>锈锚码头 · 风暴来临</figcaption></figure>
+    <figure data-full="img/shots/game4.webp"><img loading="lazy" src="img/shots/game4_t.webp" alt="鲸骨礁湾"><figcaption><i>实机</i>沉钟海岸 · 鲸骨礁湾</figcaption></figure>
+    <figure data-full="img/shots/S1_mirrordeep.webp"><img loading="lazy" src="img/shots/S1_mirrordeep_t.webp" alt="镜渊城"><figcaption><i>CG</i>镜渊城</figcaption></figure>
+    <figure data-full="img/shots/S2_coast.webp"><img loading="lazy" src="img/shots/S2_coast_t.webp" alt="沉钟海岸"><figcaption><i>CG</i>沉钟海岸</figcaption></figure>
+    <figure data-full="img/shots/S3_belltower.webp"><img loading="lazy" src="img/shots/S3_belltower_t.webp" alt="无声钟楼"><figcaption><i>CG</i>无声钟楼</figcaption></figure>
+    <figure data-full="img/shots/S4_abyss.webp"><img loading="lazy" src="img/shots/S4_abyss_t.webp" alt="暗岩深渊"><figcaption><i>CG</i>暗岩深渊</figcaption></figure>
+    <figure data-full="img/shots/crossroads.webp"><img loading="lazy" src="img/shots/crossroads_t.webp" alt="命运的岔路"><figcaption><i>CG</i>命运的岔路</figcaption></figure>
+  </div>
+</section>
+<div class="lightbox" id="lightbox" hidden><img id="lbImg" alt=""><p id="lbCap"></p><button class="lb-x" id="lbX" aria-label="关闭">×</button></div>
+<!-- ===== /新增板块（上半）===== -->
+
 <!-- 下载 -->
 <section class="download" id="download">
   <h2><span class="en">Downloads</span>免费下载</h2>
@@ -115,7 +245,7 @@
       <p class="en">Dark Rock Legends — Offline Build</p>
       <p>解压后打开即可游玩，无需安装。正在做最后的调试，开放后放在这里。</p>
       <ul class="dl-meta"><li>版本：待定</li><li>大小：待定</li><li>平台：待定</li></ul>
-      <a class="btn btn-ghost disabled" aria-disabled="true">即将开放</a>
+      <button class="btn btn-ghost btn-soon" type="button" disabled aria-disabled="true">下载 · 即将开放</button>
     </div>
     <div class="dl-card">
       <div class="dl-tag">21 首 · MP3</div>
@@ -137,14 +267,34 @@
   <div class="tracklist" id="tracklist" hidden></div>
 </section>
 
+<!-- 开发日志 -->
+<section class="devlog" id="devlog">
+  <h2><span class="en">Dev Log</span>开发日志</h2>
+  <p class="dv-lead">从一张地图到一片地底之海：这一个月里，暗岩是怎么一点点长出来的。</p>
+  <ol class="dv-line">
+    <li><time>10 · 17</time><h3>暗岩的地图铺开了</h3><p>等级上限提到 30 级，新增三张地图；装备有了耐久和修理，四档难度、套装、暗金装备和铁匠兑换一起上线。</p></li>
+    <li><time>10 · 17</time><h3>第一座长副本：熔心王座</h3><p>熔铸者戈拉克、双生焰灵、炎誓大祭司，最后是把心脏扔进熔炉的熔心君王瓦尔卡兹。</p></li>
+    <li><time>10 · 18</time><h3>新职业：时砂行者</h3><p>掷出时轮，让伤害先存在敌人身上再一起引爆；回声分身重放技能，回溯三秒躲开致命一击。</p></li>
+    <li><time>10 · 20</time><h3>暗岩深渊开放</h3><p>深渊 1–10 层，一路向下，直到借无名铸像现身的暗岩之魂。</p></li>
+    <li><time>10 · 23</time><h3>资料片「沉钟之海」动工</h3><p>等级上限提到 40 级，地底之海、无声钟楼的新装备和专属音乐陆续加入。</p></li>
+    <li><time>10 · 25</time><h3>首领们换上了新身体</h3><p>六位冒险者换成写实模型，铸钟巨像、缄默修士长、沉眠者等九位资料片首领有了全新的 3D 形象。</p></li>
+    <li><time>10 · 26</time><h3>首领开口说话，铸造台点火</h3><p>首领登场、转阶段和倒下时都有配音，各个场景有了自己的背景音乐；铸造台可以为武器生成独一无二的外观。</p></li>
+    <li><time>10 · 28</time><h3>拍照模式</h3><p>按 P 打开，环绕、缩放，把你的冒险者和风景存成一张带水印的照片。</p></li>
+    <li><time>10 · 31</time><h3>潮渊钟井：钟笼升降</h3><p>长副本里的两座钟笼会沿着锁链在低栈道和七米高的栈道之间升降，涨潮时可以从高处绕开水面。</p></li>
+    <li><time>11 · 01</time><h3>沉钟海岸大翻新</h3><p>退潮沉钟浅滩、风暴锈锚码头、鲸骨礁湾三片区域重做，加入真实的海面、风暴和天气；闪电类技能换上了全新的电弧特效。</p></li>
+    <li><time>11 · 03</time><h3>开场动画</h3><p>新建角色时会先看到一段开场：钟裂、深井、深潮之喉莫尔维斯现身。角色选择画面也换上了倒钟的背景。</p></li>
+    <li><time>11 · 08</time><h3>每个地方都有了自己的曲子</h3><p>新增十四首原声，覆盖各个营地、副本和首领战；五十多个技能音效换成了新的声音。</p></li>
+  </ol>
+</section>
+
 <!-- 关于 -->
 <section class="about" id="about">
   <h2><span class="en">About</span>关于暗岩传说</h2>
   <p>《暗岩传说：深渊回响》是一款网页 RPG。千年不息的镜渊古钟忽然停摆，深井下的老王睁开了眼，镜中的影子比主人先醒来。你将穿过沉钟海岸、镜渊城、无声钟楼与潮渊钟井，在十字路口做出选择。</p>
-  <p class="fine">本页面与游戏免费发布。原声音乐由 AI 辅助生成（Suno / MiniMax），仅供免费、非商业收听与使用，请勿用于商业用途。<br>Music created with AI tools (Suno / MiniMax). Free for personal, non-commercial listening.</p>
+  <p class="fine">本页面与游戏免费发布。原声音乐由 AI 辅助生成（Suno / MiniMax），仅供免费、非商业收听与使用，请勿用于商业用途。完整来源见 <a href="credits.html">署名与 AI 声明</a>。<br>Music created with AI tools (Suno / MiniMax). Free for personal, non-commercial listening.</p>
 </section>
 
-<footer class="foot">© 2026 暗岩传说 Dark Rock Legends</footer>
+<footer class="foot">© 2026 暗岩传说 Dark Rock Legends · AI 生成，非商业免费试听 · <a href="credits.html">署名与 AI 声明</a></footer>
 
 <!-- 彩蛋 / 苏醒 -->
 <div class="awaken" id="awaken" hidden>
@@ -161,5 +311,7 @@
 <script src="tracks.js"></script>
 <script src="peaks.js"></script>
 <script src="app.js"></script>
+<script src="codex.js"></script>
+<script src="extra.js"></script>
 </body>
 </html>
